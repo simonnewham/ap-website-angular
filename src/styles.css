@@ -1,0 +1,81 @@
+body { 
+    padding-top: 65px; 
+}
+
+.content {
+    margin-bottom: 30px;
+}
+
+.navbar-ap{
+    background-color: #28587B;
+}
+
+.primary-wide {
+    background-color: #28587B; 
+    border: none; 
+    width: 100%;
+}
+
+.primary-wide:hover {
+    background-color:#28587B;;
+  }
+
+.footer-wide {
+    text-align:center; 
+    background-color: #28587B; 
+    border: none; 
+}
+
+h1, h2, h3, h4, h5{
+    color: #28587B;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 50; 
+  }
+
+.modal-content {
+      position: fixed;
+      align-self: center;
+      width: 100vw;
+      padding: 2px;
+      z-index: 100;
+      background: white;
+      box-shadow: 0 2px 8px rgb(0, 0,0, 0.26);
+  }
+
+.custom-modalbox >  mat-dialog-container {
+    color: black;
+    background-color: white;
+}
+
+textarea.ng-valid, input.ng-valid  {
+    border-left: 5px solid #42A948;
+  }
+  
+textarea.ng-invalid.ng-touched, input.ng-invalid.ng-touched {
+    border-left: 5px solid #a94442;
+}
+
+.validation {
+    color: #a94442;
+    font-size: small;
+}
+
+.style-success {
+    color: #42A948;
+    background-color: #42A948;
+  }
+
+.close-dialog {
+    text-align: right;
+}
+
+.close-button {
+    border: none;
+}

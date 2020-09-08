@@ -1,0 +1,54 @@
+<div class="container">
+    <h4>Send us a Message</h4>
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
+        <div class="row">
+            <div class="col-lg-6 mb-2">
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Full Name:</label>
+                        <input type="text" class="form-control" ngModel name="name" 
+                        required #name="ngModel">
+                        <p class="validation" *ngIf="!name.valid && name.touched">Name is required</p>
+                    </div>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Phone Number:</label>
+                        <input type="tel" class="form-control" ngModel name="tel"
+                            required #tel="ngModel">
+                        <p class="validation" *ngIf="!tel.valid && tel.touched">
+                            Phone number is required</p>
+                    </div>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Email Address:</label>
+                        <input type="email" class="form-control" ngModel name="email"
+                            required email #email="ngModel">
+                        <p class="validation" *ngIf="!email.valid && email.touched">
+                            Valid email is required</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-2">
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label>Message:</label>
+                        <textarea rows="4" cols="100" class="form-control" maxlength="999" ngModel style="resize:none"
+                            name="message" required #message="ngModel"
+                            ></textarea>
+                        <p class="validation" *ngIf="!message.valid && message.touched">
+                            Message required</p>
+                    </div>
+                </div>
+                <div style="text-align:right;">
+                    <button type="submit" class="btn btn-primary" id="sendMessageButton"
+                        style="background-color: #02090e; border: none;"
+                        [disabled]="true ? true : !form.valid">
+                        Send Message Coming Soon
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
