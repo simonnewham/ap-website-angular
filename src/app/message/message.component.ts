@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { FirebaseService } from '../firebase.service';
+import { getLocaleDateTimeFormat } from '@angular/common';
 
 @Component({
   selector: 'app-message',
@@ -13,18 +15,36 @@ export class MessageComponent implements OnInit {
 
   private configSuccess: MatSnackBarConfig = {
     panelClass: ['style-success'],
-    duration: 2000
+    duration: 4000
   };
 
-  constructor(private snackBar: MatSnackBar) { }
+  sending: boolean;
+
+  constructor(
+    private snackBar: MatSnackBar,
+    private firebaseService: FirebaseService
+    ) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
-    this.form.reset();
-    this.snackBar.open('Message Sent!', '', this.configSuccess);
-    this.submitted.emit();
+    const data = {
+      name: this.form.form.value.name,
+      phone: this.form.form.value.tel,
+      email: this.form.form.value.email,
+      message: this.form.form.value.message,
+      timelogged: Date.now()
+    };
+
+    this.sending = true;
+
+    this.firebaseService.logMessage(data).then(res => {
+      this.form.reset();
+      this.snackBar.open('Message Sent!', '', this.configSuccess);
+      this.submitted.emit();
+      this.sending = false;
+    });
   }
 }
 

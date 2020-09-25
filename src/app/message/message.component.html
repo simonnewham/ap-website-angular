@@ -5,26 +5,26 @@
             <div class="col-lg-6 mb-2">
                 <div class="control-group form-group">
                     <div class="controls">
-                        <label>Full Name:</label>
+                        <label>Full Name: *</label>
                         <input type="text" class="form-control" ngModel name="name" 
-                        required #name="ngModel">
+                        required #name="ngModel" maxlength="30">
                         <p class="validation" *ngIf="!name.valid && name.touched">Name is required</p>
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div class="controls">
-                        <label>Phone Number:</label>
+                        <label>Phone Number: *</label>
                         <input type="tel" class="form-control" ngModel name="tel"
-                            required #tel="ngModel">
+                            required #tel="ngModel" maxlength="10">
                         <p class="validation" *ngIf="!tel.valid && tel.touched">
                             Phone number is required</p>
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div class="controls">
-                        <label>Email Address:</label>
+                        <label>Email Address: *</label>
                         <input type="email" class="form-control" ngModel name="email"
-                            required email #email="ngModel">
+                            required email #email="ngModel" maxlength="30">
                         <p class="validation" *ngIf="!email.valid && email.touched">
                             Valid email is required</p>
                     </div>
@@ -33,8 +33,8 @@
             <div class="col-lg-6 mb-2">
                 <div class="control-group form-group">
                     <div class="controls">
-                        <label>Message:</label>
-                        <textarea rows="4" cols="100" class="form-control" maxlength="999" ngModel style="resize:none"
+                        <label>Message: *</label>
+                        <textarea rows="4" cols="100" class="form-control" maxlength="500" ngModel style="resize:none"
                             name="message" required #message="ngModel"
                             ></textarea>
                         <p class="validation" *ngIf="!message.valid && message.touched">
@@ -44,8 +44,8 @@
                 <div style="text-align:right;">
                     <button type="submit" class="btn btn-primary" id="sendMessageButton"
                         style="background-color: #02090e; border: none;"
-                        [disabled]="true ? true : !form.valid">
-                        Send Message Coming Soon
+                        [disabled]="!form.valid">
+                        {{ sending ? 'Sending...' : 'Send Message'}}
                     </button>
                 </div>
             </div>

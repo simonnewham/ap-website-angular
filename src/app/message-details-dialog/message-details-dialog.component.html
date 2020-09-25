@@ -1,0 +1,16 @@
+
+<div mat-dialog-content>
+    
+    <div class="close-dialog"><button class="close-button" (click)="closeDialog()" tabindex="-1">X</button></div>
+    <h5>Message Details</h5>
+    <strong>Name:</strong>
+    <p class="wrap">{{message.name}}</p>
+    <strong>Phone:</strong>
+    <p class="wrap">{{message.phone}}</p>
+    <strong>Email:</strong>
+    <p class="wrap">{{message.email}}</p>
+    <strong>Message:</strong>
+    <p class="wrap">{{message.message}}</p>
+    <strong>Time Logged:</strong>
+    <p class="wrap">{{message.timelogged | date: 'short'}}</p>
+</div>

@@ -1,0 +1,75 @@
+<div *ngIf="!valid" class="container mb-4 mt-4"
+    style="text-align: center; height: 50vh; margin-top: auto; margin-bottom: auto;">
+    <i class="fa fa-lock" aria-hidden="true" style="font-size:80px"></i>
+    <h5>System Admin</h5>
+    <p>Please enter your password</p>
+    <input class="password" type="password" [(ngModel)]="password" name="password">
+    <br>
+    <p *ngIf="showIncorrect" style="color: #a94442" class="mt-2">Incorrect password, please try again</p>
+    <button (click)="onSubmit()" class="btn btn-primary mt-2" style="background-color:  #28587B; border: none;">
+        Continue</button>
+</div>
+
+<div *ngIf="valid" class="container mb-4 mt-2">
+    <h4 class="text-center">Welcome back,</h4>
+    <hr>
+
+    <div *ngIf="!loaded" style="text-align: center;">
+        <p>Loading...</p>
+        <!-- <mat-spinner></mat-spinner> -->
+    </div>
+
+    <div *ngIf="loaded" class="card h-100 mb-4">
+        <h5 class="card-header">Patient Messages ({{messages.length}})
+            <a (click)="onRefresh()"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+        </h5>
+
+        <div class="card-body">
+            <mat-table class="table" [dataSource]="messages">
+                <ng-container matColumnDef="name">
+                    <mat-header-cell class="mat-cell-2" *matHeaderCellDef>Name</mat-header-cell>
+                    <mat-cell class="mat-cell-2" *matCellDef="let message">
+                        <p class="wrap">{{message.payload.doc.data().name}}</p>
+                    </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="phone">
+                    <mat-header-cell class="mat-cell-2" *matHeaderCellDef>Phone</mat-header-cell>
+                    <mat-cell class="mat-cell-2" *matCellDef="let message">
+                        <p class="wrap">{{message.payload.doc.data().phone}}</p>
+                    </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="email">
+                    <mat-header-cell class="mat-cell-2" *matHeaderCellDef>Email</mat-header-cell>
+                    <mat-cell class="mat-cell-2" *matCellDef="let message">
+                        <p class="wrap">{{message.payload.doc.data().email}}</p>
+                    </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="message">
+                    <mat-header-cell *matHeaderCellDef>Message</mat-header-cell>
+                    <mat-cell *matCellDef="let message">
+                        <p class="wrap">{{message.payload.doc.data().message}}</p>
+                    </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="timeLogged">
+                    <mat-header-cell class="mat-cell-6" *matHeaderCellDef>Time Logged</mat-header-cell>
+                    <mat-cell class="mat-cell-6" *matCellDef="let message">
+                        {{message.payload.doc.data().timelogged | date: 'short'}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="actions">
+                    <mat-header-cell *matHeaderCellDef class="mat-cell-2">Actions</mat-header-cell>
+                    <mat-cell *matCellDef="let message" class="mat-cell-2">
+                        <button class="btn btn-primary btn-sm mr-2" style="background-color:  #28587B; border: none;"
+                            (click)="onViewMessage(message)">view</button>
+                        <button class="btn btn-primary btn-sm" style="background-color:  #a94442; border: none;"
+                            (click)="onDelete(message)">delete</button>
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="['name', 'phone', 'email','message','timeLogged', 'actions']">
+                </mat-header-row>
+                <mat-row *matRowDef="let row; columns: ['name', 'phone', 'email','message','timeLogged', 'actions']">
+                </mat-row>
+            </mat-table>
+        </div>
+    </div>
+</div>
