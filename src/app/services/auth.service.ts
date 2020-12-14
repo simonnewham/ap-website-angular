@@ -15,7 +15,7 @@ export class AuthService {
     // Use BehaviourSubject for on demand fetching of user data
 
     constructor(private http: HttpClient) {
-        this.key = environment.firebaseConfig.apiKey;
+        this.key = environment.apiKey;
     }
 
     public signIn(password: string): Observable<object> {

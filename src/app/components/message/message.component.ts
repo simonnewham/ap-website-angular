@@ -28,7 +28,7 @@ export class MessageComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const data = {
+    const data =  {
       name: this.form.form.value.name,
       phone: this.form.form.value.tel,
       email: this.form.form.value.email,
@@ -38,7 +38,7 @@ export class MessageComponent implements OnInit {
 
     this.sending = true;
 
-    this.firebaseService.logMessage(data).then(res => {
+    this.firebaseService.logMessage(data).subscribe(res => {
       this.form.reset();
       this.snackBar.open('Message Sent!', '', this.configSuccess);
       this.submitted.emit();

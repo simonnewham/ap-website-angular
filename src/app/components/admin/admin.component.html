@@ -46,31 +46,31 @@
                     <ng-container matColumnDef="name">
                         <mat-header-cell class="mat-cell-2" *matHeaderCellDef>Name</mat-header-cell>
                         <mat-cell class="mat-cell-2" *matCellDef="let message">
-                            <p class="wrap">{{message.payload.doc.data().name}}</p>
+                            <p class="wrap">{{message.name}}</p>
                         </mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="phone">
                         <mat-header-cell class="mat-cell-2" *matHeaderCellDef>Phone</mat-header-cell>
                         <mat-cell class="mat-cell-2" *matCellDef="let message">
-                            <p class="wrap">{{message.payload.doc.data().phone}}</p>
+                            <p class="wrap">{{message.phone}}</p>
                         </mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="email">
                         <mat-header-cell class="mat-cell-2" *matHeaderCellDef>Email</mat-header-cell>
                         <mat-cell class="mat-cell-2" *matCellDef="let message">
-                            <p class="wrap">{{message.payload.doc.data().email}}</p>
+                            <p class="wrap">{{message.email}}</p>
                         </mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="message">
                         <mat-header-cell *matHeaderCellDef>Message</mat-header-cell>
                         <mat-cell *matCellDef="let message">
-                            <p class="wrap">{{message.payload.doc.data().message}}</p>
+                            <p class="wrap">{{message.message}}</p>
                         </mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="timeLogged">
                         <mat-header-cell class="mat-cell-6" *matHeaderCellDef>Time Logged</mat-header-cell>
                         <mat-cell class="mat-cell-6" *matCellDef="let message">
-                            {{message.payload.doc.data().timelogged | date: 'short'}}</mat-cell>
+                            {{message.timelogged | date: 'short'}}</mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="actions">
                         <mat-header-cell *matHeaderCellDef class="mat-cell-2">Actions</mat-header-cell>

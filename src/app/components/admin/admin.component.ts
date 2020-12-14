@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { take } from 'rxjs/internal/operators/take';
+import { map } from 'rxjs/operators';
 import { AuthService, FirebaseService } from 'src/app/services/index';
 import { MessageDetailsDialogComponent } from '../message-details-dialog/message-details-dialog.component';
+import { Message } from 'src/app/models/message';
 
 @Component({
-  selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
   password: string;
   valid: boolean;
-  messages: any;
+  messages: Message[];
 
   signingIn: boolean;
-  deleting: boolean;
   loaded: boolean;
   showIncorrect: boolean;
 
@@ -53,7 +53,16 @@ export class AdminComponent implements OnInit {
   }
 
   getMessages(): void {
-    this.firebaseService.getMessages().then(resp => {
+    this.firebaseService.getMessages().pipe(
+      map((resp: any) => {
+      const messages = [];
+      for (const key in resp) {
+        if (resp.hasOwnProperty(key)){
+          messages.push({ ...resp[key], id: key });
+        }
+      }
+      return messages;
+    })).subscribe(resp => {
       this.messages = resp;
       this.loaded = true;
     });
@@ -61,26 +70,21 @@ export class AdminComponent implements OnInit {
 
   onRefresh(): void {
     this.loaded = false;
-
-    this.firebaseService.getMessages().then(resp => {
-      this.messages = resp;
-      this.loaded = true;
-    });
+    this.getMessages();
   }
 
   onViewMessage(message: any): void {
     this.dialog.open(MessageDetailsDialogComponent, {
-      data: message.payload.doc.data(),
+      data: message,
       width: '750px'
     });
   }
 
   onDelete(message: any): void {
     this.loaded = false;
-    this.firebaseService.deleteMessage(message.payload.doc.id).then(
-      res => {
-        this.onRefresh();
-      });
+    this.firebaseService.deleteMessage(message.id).subscribe(res => {
+      this.onRefresh();
+    });
   }
 
   onLogOut(): void {

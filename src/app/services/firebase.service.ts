@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { take } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { exhaustMap, take } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { AuthService } from './auth.service';
 })
 export class FirebaseService {
 
-  constructor(private firebase: AngularFirestore,
+  constructor(
     private http: HttpClient,
     private authService: AuthService) { }
 
@@ -17,27 +18,25 @@ export class FirebaseService {
    * Log user message to firebase
    * @param data data to log
    */
-  logMessage(data: any) {
-    // will only get user once
-    // this.authService.user.pipe(take(1)).subscribe(user => {
-    //   return this.http.post();
-    // });
-    return this.firebase.collection('messages').add(data);
+  logMessage(data: any): Observable<object> {
+    return this.http.post(environment.firebaseApi + '/messages.json', data);
   }
 
   /**
    * Get messages from firebase
    */
-  getMessages() {
-    return new Promise<any>((resolve, reject) => {
-      this.firebase.collection('/messages').snapshotChanges()
-        .subscribe(snapshots => {
-          resolve(snapshots);
+  getMessages(): Observable<object> {
+    // will only get user once and then swap out with post
+    return this.authService.user.pipe(take(1), exhaustMap(user => {
+      if (user != null) {
+        return this.http.get(environment.firebaseApi + '/messages.json', {
+          params: new HttpParams().set('auth', user.token)
         });
-    });
+      }
+    }));
   }
 
-  deleteMessage(messageId: string) {
-    return this.firebase.collection('messages').doc(messageId).delete();
+  deleteMessage(messageId: string): Observable<object> {
+    return this.http.delete(environment.firebaseApi + '/messages/' + messageId + '.json');
   }
 }
