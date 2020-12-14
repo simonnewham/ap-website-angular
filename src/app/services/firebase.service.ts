@@ -1,18 +1,27 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { take } from 'rxjs/operators';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
 
-  constructor(private firebase: AngularFirestore) { }
+  constructor(private firebase: AngularFirestore,
+    private http: HttpClient,
+    private authService: AuthService) { }
 
   /**
    * Log user message to firebase
    * @param data data to log
    */
   logMessage(data: any) {
+    // will only get user once
+    // this.authService.user.pipe(take(1)).subscribe(user => {
+    //   return this.http.post();
+    // });
     return this.firebase.collection('messages').add(data);
   }
 

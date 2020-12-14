@@ -1,3 +1,5 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 body { 
     padding-top: 65px; 
 }
@@ -8,6 +10,9 @@ body {
 
 .navbar-ap{
     background-color: #28587B;
+    border-bottom: solid;
+    border-color: #3895D3;   
+    border-width: 4px;
 }
 
 .primary-wide {
@@ -16,14 +21,20 @@ body {
     width: 100%;
 }
 
+.primary-small{
+    background-color: #28587B; 
+    border: none; 
+}
+
 .primary-wide:hover {
-    background-color:#28587B;;
+    background-color:#28587B;
   }
 
 .footer-wide {
     text-align:center; 
     background-color: #28587B; 
-    border: none; 
+    border-bottom: solid;
+    border-color: #3895D3;  
 }
 
 h1, h2, h3, h4, h5{
@@ -79,4 +90,20 @@ p.wrap {
 .mat-table {
     width: 100%;
     background: white;
+}
+
+.ap-footer {
+    background-color: #28587B;
+}
+
+.admin-view {
+    min-height: 60vh;
+}
+
+.center {
+    text-align: center;
+}
+
+.auth{
+   color: green;
 }

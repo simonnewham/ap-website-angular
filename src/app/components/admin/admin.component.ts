@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from '../firebase.service';
 import { MatDialog } from '@angular/material/dialog';
+import { take } from 'rxjs/internal/operators/take';
+import { AuthService, FirebaseService } from 'src/app/services/index';
 import { MessageDetailsDialogComponent } from '../message-details-dialog/message-details-dialog.component';
 
 @Component({
@@ -13,32 +14,52 @@ export class AdminComponent implements OnInit {
   valid: boolean;
   messages: any;
 
+  signingIn: boolean;
   deleting: boolean;
   loaded: boolean;
   showIncorrect: boolean;
 
   constructor(
+    private authService: AuthService,
     private dialog: MatDialog,
     private firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
+    this.authService.user.pipe(take(1)).subscribe(user => {
+      this.valid = !!user;
+      this.getMessages();
+    });
   }
 
   onSubmit(): void {
-    if (this.password === '?APGynae20') {
-      this.valid = true;
-      this.showIncorrect = false;
+    this.signingIn = true;
+    this.showIncorrect = false;
 
-      this.firebaseService.getMessages().then(resp => {
-        this.messages = resp;
-        this.loaded = true;
-      });
-    } else {
+    this.authService.signIn(this.password).subscribe(data => {
+      if (data) {
+        this.signingIn = false;
+        this.valid = true;
+
+        // TODO: re-route to table component
+        this.showIncorrect = false;
+        this.password = '';
+        this.getMessages();
+      }
+    }, error => {
+      this.signingIn = false;
+      this.password = '';
       this.showIncorrect = true;
-    }
+    });
   }
 
-  onRefresh() {
+  getMessages(): void {
+    this.firebaseService.getMessages().then(resp => {
+      this.messages = resp;
+      this.loaded = true;
+    });
+  }
+
+  onRefresh(): void {
     this.loaded = false;
 
     this.firebaseService.getMessages().then(resp => {
@@ -47,18 +68,23 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  onViewMessage(message: any) {
+  onViewMessage(message: any): void {
     this.dialog.open(MessageDetailsDialogComponent, {
       data: message.payload.doc.data(),
       width: '750px'
     });
   }
 
-  onDelete(message: any) {
+  onDelete(message: any): void {
     this.loaded = false;
     this.firebaseService.deleteMessage(message.payload.doc.id).then(
       res => {
         this.onRefresh();
       });
+  }
+
+  onLogOut(): void {
+    this.valid = false;
+    this.authService.signOut();
   }
 }

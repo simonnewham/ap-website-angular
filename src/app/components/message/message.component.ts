@@ -1,8 +1,7 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
-import { FirebaseService } from '../firebase.service';
-import { getLocaleDateTimeFormat } from '@angular/common';
+import { FirebaseService } from 'src/app/services/index';
 
 @Component({
   selector: 'app-message',
