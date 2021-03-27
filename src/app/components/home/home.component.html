@@ -1,54 +1,46 @@
+<div class="row justify-content-center" style="background-color: #1E4258; padding-top: 35px; padding-bottom: 25px;">
+    <div class="col-xs-12 col-md-12 col-lg-12">
+        <div style="text-align: center;">
+            <h2 style="color: white">Dr Andrew Newham</h2>
+            <h4 style="color: white">Specialist Gynaecologist | Cape Town</h4>
+            <p style="color: #bfbfbf">
+                +27 (0)21 671 7052 |
+                <a style="color: #bfbfbf"
+                    href="mailto:appointments@capetowngynaecologist.co.za">appointments@capetowngynaecologist.co.za</a>
+            </p>
+            <i class="pb-2" style="color: #bfbfbf;">"Promoting wellness through specialist holistic care."</i>
+        </div>
+    </div>
+</div>
 <div class="container content">
-    <div class="row">
-        <div class="col-lg-5 mb-3" style="text-align: left;">
-            <img class="img-fluid rounded" src="assets/images/banner.jpg" alt="specialist gynaecologist"
-                style="height: 30vh;">
-        </div>
-        <div class="col-lg-7" style="margin-top: auto; margin-bottom: auto;">
-            <div style="text-align: center;">
-                <h2>Dr Andrew Newham</h2>
-                <h4>Specialist Gynaecologist | Cape Town</h4>
-                <p style="color: #3895D3;">
-                    +27 (0)21 671 7052 |
-                    <a style="color: #3895D3"
-                        href="mailto:appointments@capetowngynaecologist.co.za">appointments@capetowngynaecologist.co.za</a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div style="text-align: center;">
-        <h5 style="color: black;">
-            <i>"Promoting wellness through specialist holistic care."</i>
-        </h5>
-    </div>
     <br>
     <div class="row">
         <div class="col-lg-4 mb-2">
-            <div class="card h-100">
+            <div class="card h-100 home-card" routerLink="/Services">
                 <h5 class="card-header">Services</h5>
                 <div class="card-body" style="text-align:center;">
                     <p class="card-text">Browse all services offered by Dr Newham.</p>
                     <i class="fa fa-stethoscope" style="font-size:70px;"></i>
                 </div>
-                <div class="card-footer footer-wide">
+                <!-- <div class="card-footer footer-wide">
                     <a routerLink="/Services" class="btn btn-primary primary-wide">Search</a>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="col-lg-4 mb-2">
-            <div class="card h-100">
+            <div class="card h-100 home-card" routerLink="/Contact">
                 <h5 class="card-header">Contact Details</h5>
                 <div class="card-body" style="text-align:center;">
                     <p class="card-text">View our contact details and office hours.</p>
                     <i class="fa fa-map-o" style="font-size:70px; align-content: center;"></i>
                 </div>
-                <div class="card-footer footer-wide">
+                <!-- <div class="card-footer footer-wide">
                     <a routerLink="/Contact" class="btn btn-primary primary-wide">View</a>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="col-lg-4 mb-2">
-            <div class="card h-100">
+            <div class="card h-100 home-card" (click)="showMessageDialog()" >
                 <h5 class="card-header">Appointments</h5>
                 <div class="card-body" style="text-align:center;">
                     <p class="card-text">Send us a message and we'll get back to you about scheduling an
@@ -56,46 +48,36 @@
                     </p>
                     <i class="fa fa-pencil" style="font-size:70px"></i>
                 </div>
-                <div class="card-footer footer-wide">
+                <!-- <div class="card-footer footer-wide">
                     <a (click)="showMessageDialog()" class="btn btn-primary primary-wide">Send Message</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
     <hr>
-    <h5 style="color: #28587B">COVID-19</h5>
-    <div class="row">
-        <div class="col-lg-7 mb-2">
+    <!-- <div class="row">
+        <div class="col-lg-6 mb-2">
             <div id="serviceCard" class="card h-100">
-                <strong class="card-header" style="color: #28587B;">Patient Safety Protocol</strong>
-                <div id="bodyCustom" class="card-body">
-                    <p class="card-text">
-                        We commit to following strict Covid-19 safety guidlines to ensure the safety of all
-                        patients.
-                        <br />
-                    </p>
+                <strong class="card-header" style="color: #28587B;">Billing Information</strong>
+                <div id="bodyCustom" class="card-body center">
+                    <i class="fa fa-credit-card" style="font-size: 50px;" aria-hidden="true"></i>
+                    <p>Coming Soon!</p>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-5 mb-2">
+            </div>
+        <div class="col-lg-6 mb-2">
             <div id="serviceCard" class="card h-100">
-                <strong class="card-header" style="color: #28587B;">Useful Resources</strong>
-                <div id="bodyCustom" class="card-body">
-                    <p>
-                        <a href="https://sacoronavirus.co.za/" target="_blank">
-                            - COVID-19 South African Resource Portal</a><br />
-                        <a href="https://www.afro.who.int/countries/south-africa" target="_blank">
-                            - WHO South Africa</a><br />
-                        <a href="https://www.nicd.ac.za/diseases-a-z-index/covid-19/" target="_blank">
-                            - NICD Covid 19 Resources</a>
-                    </p>
+                <strong class="card-header" style="color: #28587B;">FAQs</strong>
+                <div id="bodyCustom" class="card-body center">
+                    <i class="fa fa-question-circle" style="font-size: 50px;" aria-hidden="true"></i>
+                    <p>Coming Soon!</p>
                 </div>
             </div>
         </div>
     </div>
-    <hr>
+    <hr> -->
     <div class="row">
-        <div class="col-lg-6" style="padding-right: 50px;">
+        <div class="col-lg-7">
             <h5 style="color: #28587B">Meet Dr Newham</h5>
             <p>Dr Newham grew up in Pretoria, matriculating at Pretoria Boys' High School in 1977. He studied
                 medicine at the University of Cape Town. His year as an intern was spent in East London at Frere Hospital.
@@ -108,9 +90,11 @@
                 <a class="btn btn-primary mb-2 primary-small" routerLink="/About">Read More</a>
             </div>
         </div>
-        <div class="col-lg-6" style="text-align: center;">
+        <div class="col-lg-5" style="text-align: center;">
             <img class="img-fluid rounded"
-                src="assets/images/ultra.jpg" alt="Dr A Newham" height="360" width="480">
+                src="assets/images/mug.jpg" alt="Dr A Newham" height="314" width="418">
         </div>
     </div>
+    <hr>
+    <app-contact [showBreadCrumb]="false"></app-contact>
 </div>

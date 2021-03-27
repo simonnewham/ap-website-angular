@@ -1,48 +1,81 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body { 
-    padding-top: 65px; 
+    padding-top: 50px; 
 }
 
 .content {
+    padding-top: 8px;
     margin-bottom: 30px;
 }
 
 .navbar-ap{
-    background-color: #28587B;
-    border-bottom: solid;
-    border-color: #3895D3;   
-    border-width: 4px;
+    background-color: #1E4258; 
 }
 
 .primary-wide {
-    background-color: #28587B; 
+    background-color: #265077; 
     border: none; 
     width: 100%;
 }
 
 .primary-small{
-    background-color: #28587B; 
+    background-color: #265077; 
     border: none; 
+}
+.primary-small:disabled {
+    background-color: #2650775e; 
+}
+.primary-small:disabled:hover {
+    background-color: #2650775e; 
+}
+
+.primary-small:hover {
+    background-color: #494B68;
 }
 
 .primary-wide:hover {
     background-color:#28587B;
-  }
+}
 
 .footer-wide {
     text-align:center; 
-    background-color: #28587B; 
-    border-bottom: solid;
-    border-color: #3895D3;  
+    background-color: #022140; 
 }
 
 h1, h2, h3, h4, h5{
-    color: #28587B;
+    color: #022140;
 }
+@media screen and (max-width: 600px) {
+    h2 {
+      font-size: 1.6em;
+    }
+    h3, h4 {
+        font-size: 1.3em;
+    }
+    h5 {
+        font-size: 1.1em;
+    }
+    p {
+        font-size: .9em;
+    }
+    i{
+        font-size: .9em;
+    }
+    li {
+        font-size: .9em;
+    }
+    label {
+        font-size: .9em;
+    }
+  }
 
 p.wrap {
     word-break: break-all;
+}
+
+li {
+    margin-left: 2px;
 }
 
 .backdrop {
@@ -93,10 +126,11 @@ p.wrap {
 }
 
 .ap-footer {
-    background-color: #28587B;
+    background-color: #1E4258;
 }
 
 .admin-view {
+    padding-top: 5px;
     min-height: 60vh;
 }
 
@@ -106,4 +140,13 @@ p.wrap {
 
 .auth{
    color: green;
+}
+
+.home-card:hover{
+    background-color: #1e4258d3;
+    color: white;
+    cursor: pointer;
+}
+.home-card:hover h5 {
+    color: white;
 }

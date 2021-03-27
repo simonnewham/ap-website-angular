@@ -11,8 +11,7 @@ import { AuthResponse } from '../models/auth-response';
 })
 export class AuthService {
     key: string;
-    user = new BehaviorSubject<User>(null);
-    // Use BehaviourSubject for on demand fetching of user data
+    user = new BehaviorSubject<User>(null); // Use BehaviourSubject for on demand fetching of user data
 
     constructor(private http: HttpClient) {
         this.key = environment.apiKey;
