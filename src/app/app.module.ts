@@ -18,6 +18,7 @@ import {
   NavBarComponent, ServicesComponent
 } from './components/index';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { FaqsComponent } from './components/faqs/faqs.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     AdminComponent,
     MessageDetailsDialogComponent,
     SpinnerComponent,
+    FaqsComponent,
   ],
   imports: [
     BrowserModule,

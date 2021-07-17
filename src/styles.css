@@ -143,10 +143,10 @@ li {
 }
 
 .home-card:hover{
-    background-color: #1e4258d3;
-    color: white;
+    background-color: #c0c0c036;
+    color: black;
     cursor: pointer;
 }
 .home-card:hover h5 {
-    color: white;
+    color: black;
 }
