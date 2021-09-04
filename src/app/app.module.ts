@@ -19,6 +19,7 @@ import {
 } from './components/index';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { FaqsComponent } from './components/faqs/faqs.component';
+import { FaqItemComponent } from './components/faq-item/faq-item.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FaqsComponent } from './components/faqs/faqs.component';
     MessageDetailsDialogComponent,
     SpinnerComponent,
     FaqsComponent,
+    FaqItemComponent,
   ],
   imports: [
     BrowserModule,

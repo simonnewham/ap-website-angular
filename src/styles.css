@@ -58,6 +58,7 @@ h1, h2, h3, h4, h5{
     }
     p {
         font-size: .9em;
+        white-space: pre-line;
     }
     i{
         font-size: .9em;
@@ -66,6 +67,9 @@ h1, h2, h3, h4, h5{
         font-size: .9em;
     }
     label {
+        font-size: .9em;
+    }
+    a {
         font-size: .9em;
     }
   }
@@ -149,4 +153,15 @@ li {
 }
 .home-card:hover h5 {
     color: black;
+}
+
+.is-link {
+    cursor: pointer;
+}
+.is-link:hover{
+    background-color: #b6b5b53f;
+}
+
+p {
+    white-space: pre-line;
 }

@@ -1,0 +1,8 @@
+<div class="card h-100 mb-2">
+    <div class="card-header is-link" (click)="open()"><strong>{{question}}</strong>
+        <i class="fa fa-chevron-down" style="float: right;"></i></div>
+    <div *ngIf="opened" class="card-body">
+        <p class="card-text">{{answer}}
+        </p>
+    </div>
+</div>
