@@ -3,11 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 import { AdminFaqsComponent } from './components/admin-faqs/admin-faqs.component';
 import { AdminMessagesComponent } from './components/admin-messages/admin-messages.component';
+import { AdminBaseComponent } from './components/admin-base/admin-base.component';
 
 const routes: Routes = [
-  { path: '', component: AdminHomeComponent },
-  { path: 'Messages', component: AdminMessagesComponent },
-  { path: 'FAQs', component: AdminFaqsComponent },
+  {
+    path: '', component: AdminBaseComponent, children: [
+      { path: '', component: AdminHomeComponent },
+      { path: 'Messages', component: AdminMessagesComponent },
+      { path: 'FAQs', component: AdminFaqsComponent }
+    ]
+  }
 ];
 
 @NgModule({

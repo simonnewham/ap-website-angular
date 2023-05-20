@@ -6,7 +6,6 @@ body {
 
 .content {
     padding-top: 8px;
-    margin-bottom: 30px;
 }
 
 .navbar-ap{
@@ -131,11 +130,13 @@ li {
 
 .ap-footer {
     background-color: #1E4258;
+    margin-top: auto;
 }
 
-.admin-view {
-    padding-top: 5px;
-    min-height: 60vh;
+.ap-body {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .center {
@@ -164,4 +165,10 @@ li {
 
 p {
     white-space: pre-line;
+}
+
+.admin-base {
+    padding-left: 2vh;
+    padding-top: 2vh;
+    min-height: 80vh;
 }

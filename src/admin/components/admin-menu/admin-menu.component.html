@@ -1,1 +1,9 @@
-<p>admin-menu works!</p>
+<div class="admin-menu">
+    <div *ngFor="let menuItem of menuItems">
+        <div>
+            <a (click)="onMenuItemSelect(menuItem)" class="mb-2" style="color: #bfbfbf">{{menuItem.Label}}</a>
+        </div>
+        <hr>
+    </div>
+</div>
+
