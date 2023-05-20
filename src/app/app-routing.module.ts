@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'About', component: AboutComponent },
   { path: 'Contact', component: ContactComponent },
   { path: 'Services', component: ServicesComponent },
+  { path: 'Admin2', loadChildren: () => import('../admin/admin.module').then(m => m.AdminModule) },
   { path: 'Admin', component: AdminComponent },
   { path: 'FAQs', component: FaqsComponent},
   { path: '**', redirectTo: '' }

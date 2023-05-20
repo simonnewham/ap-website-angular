@@ -9,8 +9,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FaqItemComponent } from './components/faq-item/faq-item.component';
+import { FaqsComponent } from './components/faqs/faqs.component';
 import {
   AboutComponent, AdminComponent, ContactComponent, FooterComponent,
   HomeComponent,
@@ -18,8 +21,6 @@ import {
   NavBarComponent, ServicesComponent
 } from './components/index';
 import { SpinnerComponent } from './spinner/spinner.component';
-import { FaqsComponent } from './components/faqs/faqs.component';
-import { FaqItemComponent } from './components/faq-item/faq-item.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { FaqItemComponent } from './components/faq-item/faq-item.component';
     AngularFireStorageModule,
     MatProgressSpinnerModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   providers: [],
   entryComponents: [MessageDialogComponent, MessageDetailsDialogComponent],
