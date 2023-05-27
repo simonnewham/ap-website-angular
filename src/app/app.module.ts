@@ -22,37 +22,36 @@ import { FaqsComponent } from './components/faqs/faqs.component';
 import { FaqItemComponent } from './components/faq-item/faq-item.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavBarComponent,
-    FooterComponent,
-    HomeComponent,
-    ServicesComponent,
-    AboutComponent,
-    ContactComponent,
-    MessageComponent,
-    MessageDialogComponent,
-    AdminComponent,
-    MessageDetailsDialogComponent,
-    SpinnerComponent,
-    FaqsComponent,
-    FaqItemComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatDialogModule,
-    MatTableModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    MatSnackBarModule,
-    AngularFireStorageModule,
-    MatProgressSpinnerModule,
-    HttpClientModule,
-    CommonModule
-  ],
-  providers: [],
-  entryComponents: [MessageDialogComponent, MessageDetailsDialogComponent],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavBarComponent,
+        FooterComponent,
+        HomeComponent,
+        ServicesComponent,
+        AboutComponent,
+        ContactComponent,
+        MessageComponent,
+        MessageDialogComponent,
+        AdminComponent,
+        MessageDetailsDialogComponent,
+        SpinnerComponent,
+        FaqsComponent,
+        FaqItemComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        MatDialogModule,
+        MatTableModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        MatSnackBarModule,
+        AngularFireStorageModule,
+        MatProgressSpinnerModule,
+        HttpClientModule,
+        CommonModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
