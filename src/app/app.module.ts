@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -23,38 +23,37 @@ import {
 import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavBarComponent,
-    FooterComponent,
-    HomeComponent,
-    ServicesComponent,
-    AboutComponent,
-    ContactComponent,
-    MessageComponent,
-    MessageDialogComponent,
-    AdminComponent,
-    MessageDetailsDialogComponent,
-    SpinnerComponent,
-    FaqsComponent,
-    FaqItemComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatDialogModule,
-    MatTableModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    MatSnackBarModule,
-    AngularFireStorageModule,
-    MatProgressSpinnerModule,
-    HttpClientModule,
-    CommonModule,
-    SharedModule
-  ],
-  providers: [],
-  entryComponents: [MessageDialogComponent, MessageDetailsDialogComponent],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavBarComponent,
+        FooterComponent,
+        HomeComponent,
+        ServicesComponent,
+        AboutComponent,
+        ContactComponent,
+        MessageComponent,
+        MessageDialogComponent,
+        AdminComponent,
+        MessageDetailsDialogComponent,
+        SpinnerComponent,
+        FaqsComponent,
+        FaqItemComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        MatDialogModule,
+        MatTableModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        MatSnackBarModule,
+        AngularFireStorageModule,
+        MatProgressSpinnerModule,
+        HttpClientModule,
+        CommonModule,
+        SharedModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
