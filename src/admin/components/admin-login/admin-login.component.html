@@ -1,0 +1,21 @@
+<div *ngIf="!valid" class="row justify-content-center">
+    <div class="col-xs-12 col-md-6 col-lg-6 mt-4">
+        <div class="card h-100">
+            <div class="card-body center">
+                <h5 class="center mb-4">Admin Login</h5>
+                <p><img class="img-fluid" src="assets/images/logo.png" alt="logo" height="38" width="38">
+                    &nbsp;Dr Andrew Newham</p>
+                <!-- <i class="fa fa-user" aria-hidden="true" style="color: #1E4258; font-size:30px"></i> -->
+                <input class="password" type="password" placeholder="Password" [(ngModel)]="password"
+                    style="min-width: 50%; border-width: 0.5px;" name="password">
+                <div class="center">
+                    <app-spinner *ngIf="signingIn"></app-spinner>
+                </div>
+                <div *ngIf="showIncorrect" class="alert alert-danger mt-4" role="alert">Incorrect password, please
+                    try again</div>
+                <button (click)="onSubmit()" class="btn btn-primary primary-small mt-2" style="min-width: 30%;">
+                    Continue</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -7,6 +7,7 @@ import { AdminMenuComponent } from './components/admin-menu/admin-menu.component
 import { AdminMessagesComponent } from './components/admin-messages/admin-messages.component';
 import { SharedModule } from 'src/shared/shared.module';
 import { AdminBaseComponent } from './components/admin-base/admin-base.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AdminBaseComponent } from './components/admin-base/admin-base.component
     AdminMenuComponent,
     AdminMessagesComponent,
     AdminFaqsComponent,
-    AdminBaseComponent],
+    AdminBaseComponent,
+    AdminLoginComponent],
   imports: [
     AdminRoutingModule,
     CommonModule,
