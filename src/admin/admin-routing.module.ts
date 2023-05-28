@@ -7,10 +7,10 @@ import { AdminBaseComponent } from './components/admin-base/admin-base.component
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 
 const routes: Routes = [
+  { path: '', component: AdminLoginComponent },
   {
-    path: '', component: AdminLoginComponent, children: [
-      { path: '', component: AdminBaseComponent },
-      { path: 'Home', component: AdminHomeComponent },
+    path: 'Home', component: AdminBaseComponent, children: [
+      { path: '', component: AdminHomeComponent },
       { path: 'Messages', component: AdminMessagesComponent },
       { path: 'FAQs', component: AdminFaqsComponent }
     ]

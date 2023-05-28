@@ -20,6 +20,6 @@ export class AdminMenuComponent implements OnInit {
   }
 
   onMenuItemSelect(menuItem: MenuItem){
-    this.router.navigate([`Admin2/${menuItem.Route}`]);
+    this.router.navigate([`Admin2/Home/${menuItem.Route}`]);
   }
 }

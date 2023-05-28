@@ -1,1 +1,57 @@
-<h5>Manage Messages</h5>
+<div class="center">
+    <app-spinner *ngIf="!loaded"></app-spinner>
+</div>
+
+<div *ngIf="loaded" class="card h-100 mb-4">
+    <h5 class="card-header">Patient Messages ({{messages.length}})
+        <a (click)="onRefresh()"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+    </h5>
+
+    <div class="card-body">
+        <mat-table class="table" [dataSource]="messages">
+            <ng-container matColumnDef="name">
+                <mat-header-cell class="mat-cell-2" *matHeaderCellDef>Name</mat-header-cell>
+                <mat-cell class="mat-cell-2" *matCellDef="let message">
+                    <p class="wrap">{{message.name}}</p>
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="phone">
+                <mat-header-cell class="mat-cell-2" *matHeaderCellDef>Phone</mat-header-cell>
+                <mat-cell class="mat-cell-2" *matCellDef="let message">
+                    <p class="wrap">{{message.phone}}</p>
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="email">
+                <mat-header-cell class="mat-cell-2" *matHeaderCellDef>Email</mat-header-cell>
+                <mat-cell class="mat-cell-2" *matCellDef="let message">
+                    <p class="wrap">{{message.email}}</p>
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="message">
+                <mat-header-cell *matHeaderCellDef>Message</mat-header-cell>
+                <mat-cell *matCellDef="let message">
+                    <p class="wrap">{{message.message}}</p>
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="timeLogged">
+                <mat-header-cell class="mat-cell-6" *matHeaderCellDef>Time Logged</mat-header-cell>
+                <mat-cell class="mat-cell-6" *matCellDef="let message">
+                    {{message.timelogged | date: 'short'}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef class="mat-cell-2">Actions</mat-header-cell>
+                <mat-cell *matCellDef="let message" class="mat-cell-2">
+                    <button class="btn btn-primary btn-sm mr-2" style="background-color:  #28587B; border: none;"
+                        (click)="onViewMessage(message)">view</button>
+                    <button class="btn btn-primary btn-sm" style="background-color:  #a94442; border: none;"
+                        (click)="onDelete(message)">delete</button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="['name', 'phone', 'email','message','timeLogged', 'actions']">
+            </mat-header-row>
+            <mat-row *matRowDef="let row; columns: ['name', 'phone', 'email','message','timeLogged', 'actions']">
+            </mat-row>
+        </mat-table>
+    </div>
+</div>

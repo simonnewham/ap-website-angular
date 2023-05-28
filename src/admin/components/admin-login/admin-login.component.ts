@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { AuthService } from 'src/app/services';
 
@@ -16,7 +17,8 @@ export class AdminLoginComponent {
   showIncorrect: boolean;
 
   constructor(
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.authService.user.pipe(take(1)).subscribe(user => {
@@ -27,6 +29,8 @@ export class AdminLoginComponent {
   onSubmit(): void {
     this.signingIn = true;
     this.showIncorrect = false;
+
+    this.router.navigate(['Admin2/Home']);
 
     this.authService.signIn(this.password).subscribe(data => {
       if (data) {
